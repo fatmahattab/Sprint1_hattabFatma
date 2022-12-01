@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+    <h2>Modifier fruits :</h2>
+    </div>
+    <form >
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Fruit</label>
+    <input type="text" [(ngModel)]="currentFruit.idFruit"
+    name="idFruit" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Fruit</label>
+    <input type="text"[(ngModel)]= "currentFruit.nomFruit"
+    name="nomFruit" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix fruit</label>
+    <input type="number" [(ngModel)]= "currentFruit.prixFruit"
+    name="prixFruit" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date debut saison</label>
+<input type="date" [ngModel]="currentFruit.datedebutsaison | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentFruit.datedebutsaison= $event" name="datedebutsaison"
+ class="form-control">
+</div>
+ <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Saison</label>
+    <select class="form-control form-control-lg" id="idSai" name="idSai"
+    [(ngModel)]="updatedSaiId">
+    <option *ngFor="let sai of saisons" [value]="sai.idSai" >
+    {{sai.nomSai}}
+    </option>
+    </select>
+</div> 
+<div class="mt-2">
+<button type="submit" (click)="updateFruit()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>
